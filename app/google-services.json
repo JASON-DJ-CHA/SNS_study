@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "601318294801",
+    "project_id": "sns-study-ac806",
+    "storage_bucket": "sns-study-ac806.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601318294801:android:00114fb027b1ec3bdcf8b0",
+        "android_client_info": {
+          "package_name": "com.example.sns_study"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "601318294801-8q7rgjp95k8lkv0squnegckpmq6v5qm9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxgjuLOa4kjSMx3QMeZVmF0yYJxfsm8Qc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "601318294801-8q7rgjp95k8lkv0squnegckpmq6v5qm9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
