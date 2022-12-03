@@ -1,5 +1,7 @@
 package com.example.sns_study;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -64,6 +66,11 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
                             informMsg("로그인 성공");
+
+                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+
                         } else {
                             // If sign in fails, display a message to the user.
                             if(task.getException() != null){
@@ -81,4 +88,5 @@ public class LoginActivity extends AppCompatActivity {
     private void informMsg(String msg){
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
+
 }

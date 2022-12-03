@@ -51,6 +51,8 @@ public class sign_up extends AppCompatActivity {
 
     }
 
+
+    // 없으면 파이어베이스 실행이 안됨.
     @Override
     public void onStart() {
         super.onStart();
@@ -60,6 +62,16 @@ public class sign_up extends AppCompatActivity {
             currentUser.reload();
         }
     }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
+
+    }
+    //뒤로가지 않고 앱이 종료되는 코드
 
     private void createUser() {
         // layout에서 변수들 가져오기
@@ -85,7 +97,7 @@ public class sign_up extends AppCompatActivity {
 //                                informMsg("회원가입에 실패하였습니다.");
                                     if(task.getException() != null){
                                         //null값일때 표기가 된다? 실험해보자.
-                                        //
+                                        // ==성공
                                         informMsg(task.getException().toString());
                                     }
                                 }
