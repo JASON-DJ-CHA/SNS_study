@@ -1,6 +1,5 @@
 package com.example.sns_study;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
-    Button btnLogin;
+    Button btnLogin,btnPwReset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +30,20 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         btnLogin = findViewById(R.id.btnLogin);
+        btnPwReset = findViewById(R.id.btnPwReset);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 login();
+
+            }
+        });
+
+        btnPwReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                useIntent(Information_resetActivity.class);
 
             }
         });
@@ -67,10 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             informMsg("로그인 성공");
 
-                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(intent);
-
+                            useIntent(MainActivity.class);
                         } else {
                             // If sign in fails, display a message to the user.
                             if(task.getException() != null){
@@ -87,6 +92,13 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void informMsg(String msg){
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    private void useIntent(Class name){
+        Intent intent = new Intent(this,name);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        startActivity(intent);
     }
 
 }

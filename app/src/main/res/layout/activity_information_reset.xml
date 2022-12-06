@@ -6,12 +6,12 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="로그인"
+        android:text="비밀번호 변경"
         android:textColor="#000000"
         android:textSize="34sp"
         android:textStyle="bold" />
@@ -22,36 +22,20 @@
         android:orientation="vertical"
         android:padding="10dp">
 
+
         <EditText
-            android:id="@+id/txtLoginEmail"
+            android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:ems="10"
             android:hint="이메일"
             android:inputType="textEmailAddress" />
 
-        <EditText
-            android:id="@+id/etLoginPw"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:ems="10"
-            android:hint="비밀번호"
-            android:inputType="textPassword" />
-
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnSendPw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="로그인" />
-
-        <Button
-            android:id="@+id/btnPwReset"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="비밀번호 재설정" />
-
+            android:text="이메일전송" />
     </LinearLayout>
 
 </LinearLayout>

@@ -33,6 +33,9 @@
         <activity android:name=".MainActivity">
 
         </activity>
+        <activity android:name=".Information_resetActivity">
+
+        </activity>
     </application>
 
 </manifest>
