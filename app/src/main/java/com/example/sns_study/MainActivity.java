@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 
 public class MainActivity extends AppCompatActivity {
     Button btnLogout;
@@ -19,34 +20,42 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        // 회원가입이 안되어있으면 회원가입페이지로
+        if(user== null){
+            useIntent(sign_up.class);
+        }else{
+            // 유져 프로필 가져오는데 이름이 없으면 회원 정보 업데이트로
+            for (UserInfo profile : user.getProviderData()) {
+                String name = profile.getDisplayName();
+
+                if(name != null){
+                    if(name.length() == 0) {
+                        useIntent(MemberActivity.class);
+                    }
+                }
+            }
+        }
+
+        // 로그아웃 버튼
         btnLogout = findViewById(R.id.btnLogout);
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(MainActivity.this, sign_up.class);
-                startActivity(intent);
+                useIntent(sign_up.class);
             }
         });
+        // 로그아웃 버튼 종료
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            // Name, email address, and profile photo Url
-            String name = user.getDisplayName();
-            String email = user.getEmail();
-            Uri photoUrl = user.getPhotoUrl();
 
-            // Check if user's email is verified
-            boolean emailVerified = user.isEmailVerified();
+    }
 
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getIdToken() instead.
-            String uid = user.getUid();
-        }else {
-            Intent intent = new Intent(MainActivity.this, sign_up.class);
-            startActivity(intent);
-        }
+    private void useIntent(Class ClassName){
+        Intent intent = new Intent(this,ClassName);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

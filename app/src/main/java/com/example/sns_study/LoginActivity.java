@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login(){
-        String email = ((EditText)findViewById(R.id.txtLoginEmail)).getText().toString();
+        String email = ((EditText)findViewById(R.id.etEmail)).getText().toString();
         String password = ((EditText)findViewById(R.id.etLoginPw)).getText().toString();
 
         if(email.length() >0 && password.length() > 0){
@@ -94,8 +94,8 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
-    private void useIntent(Class name){
-        Intent intent = new Intent(this,name);
+    private void useIntent(Class ClassName){
+        Intent intent = new Intent(this,ClassName);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         startActivity(intent);
