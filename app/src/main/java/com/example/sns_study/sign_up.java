@@ -36,8 +36,8 @@ public class sign_up extends AppCompatActivity {
         btnMoveLoginPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(sign_up.this,LoginActivity.class);
-                startActivity(intent);
+
+                useIntent(LoginActivity.class);
             }
         });
 
@@ -87,12 +87,13 @@ public class sign_up extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-//                                Log.d(TAG, "createUserWithEmail:success");
+
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     informMsg("회원가입에 성공하였습니다.");
+
+                                    //회원가입 성공했을때 인텐트!
+                                    useIntent(MainActivity.class);
                                 } else {
-                                    // If sign in fails, display a message to the user.
 //                                Log.w(TAG, "createUserWithEmail:failure", task.getException())
 //                                informMsg("회원가입에 실패하였습니다.");
                                     if(task.getException() != null){
@@ -115,5 +116,12 @@ public class sign_up extends AppCompatActivity {
     }
     private void informMsg(String msg){
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    private void useIntent(Class name){
+        Intent intent = new Intent(this,name);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        startActivity(intent);
     }
 }
