@@ -41,7 +41,7 @@
             android:inputType="textPassword" />
 
         <EditText
-            android:id="@+id/etpassword2"
+            android:id="@+id/etLoginPs2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"

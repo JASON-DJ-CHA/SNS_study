@@ -77,7 +77,7 @@ public class sign_up extends AppCompatActivity {
         // layout에서 변수들 가져오기
         String email= ((EditText)findViewById(R.id.etEmail)).getText().toString();
         String password =((EditText)findViewById(R.id.etLoginPw)).getText().toString();
-        String passwordCheck = ((EditText)findViewById(R.id.etpassword2)).getText().toString();
+        String passwordCheck = ((EditText)findViewById(R.id.etLoginPs2)).getText().toString();
 
         if(email.length() >0 && password.length() > 0 && passwordCheck.length()>0){
             if(password.equals(passwordCheck)){

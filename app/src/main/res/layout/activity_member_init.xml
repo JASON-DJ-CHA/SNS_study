@@ -29,7 +29,8 @@
             android:layout_marginBottom="10dp"
             android:ems="10"
             android:hint="회원이름"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/etPhone"
@@ -38,7 +39,8 @@
             android:layout_marginBottom="10dp"
             android:ems="10"
             android:hint="휴대폰번호"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/etBirthday"
@@ -47,7 +49,8 @@
             android:layout_marginBottom="10dp"
             android:ems="10"
             android:hint="생일"
-            android:inputType="date" />
+            android:inputType="date"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/etAddress"
@@ -55,7 +58,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="주소"
-            android:inputType="textPostalAddress" />
+            android:inputType="textPostalAddress"
+            android:importantForAutofill="no" />
 
         <Button
             android:id="@+id/btnConfirm"
