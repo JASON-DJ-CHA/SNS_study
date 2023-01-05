@@ -637,6 +637,7 @@ public class Camera2BasicFragment extends Fragment
 
     // 위에 메서드 복사해옴(오버로딩)
     //뭐야 왜 깃 연동 해제됨?
+    // 뭐여
     private void openCamera(int width, int height, int facingId) {
         if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
